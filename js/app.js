@@ -1,0 +1,456 @@
+/* ===================================
+   INDUSTRIAS DOS VIENTOS - JAVASCRIPT
+   Funcionalidad interactiva y gestión de formularios
+   =================================== */
+
+// ============= CONFIGURACIÓN EMAILJS =============
+// IMPORTANTE: Reemplaza estos valores con tus credenciales de EmailJS
+// Registrate en https://www.emailjs.com/
+const EMAILJS_CONFIG = {
+    serviceID: 'TU_SERVICE_ID',      // Reemplazar con tu Service ID
+    templateID: 'TU_TEMPLATE_ID',    // Reemplazar con tu Template ID
+    publicKey: 'TU_PUBLIC_KEY'       // Reemplazar con tu Public Key
+};
+
+// ============= ESTADO DE LA APLICACIÓN =============
+const App = {
+    init() {
+        this.initNavigation();
+        this.initSmoothScroll();
+        this.initFAQ();
+        this.initForm();
+        this.initScrollEffects();
+        this.initGallery();
+    },
+
+    // ============= NAVEGACIÓN =============
+    initNavigation() {
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navClose = document.getElementById('nav-close');
+        const navLinks = document.querySelectorAll('.nav__link');
+        
+        // Crear overlay para móvil
+        const overlay = document.createElement('div');
+        overlay.className = 'nav-overlay';
+        document.body.appendChild(overlay);
+        
+        // Abrir menú
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.add('show-menu');
+                overlay.classList.add('show');
+                navToggle.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        // Cerrar menú
+        const closeMenu = () => {
+            navMenu.classList.remove('show-menu');
+            overlay.classList.remove('show');
+            navToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+        
+        if (navClose) {
+            navClose.addEventListener('click', closeMenu);
+        }
+        
+        overlay.addEventListener('click', closeMenu);
+        
+        // Cerrar al hacer clic en un link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMenu();
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY >= 80) {
+                header.style.boxShadow = 'var(--shadow-md)';
+            } else {
+                header.style.boxShadow = 'var(--shadow-sm)';
+            }
+        });
+        
+        // Active link on scroll
+        this.updateActiveLink();
+        window.addEventListener('scroll', () => this.updateActiveLink());
+    },
+
+    updateActiveLink() {
+        const sections = document.querySelectorAll('section[id]');
+        const scrollY = window.pageYOffset;
+
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 100;
+            const sectionId = section.getAttribute('id');
+            const navLink = document.querySelector(`.nav__link[href="#${sectionId}"]`);
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLink?.classList.add('active');
+            } else {
+                navLink?.classList.remove('active');
+            }
+        });
+    },
+
+    // ============= SMOOTH SCROLL =============
+    initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Ignorar enlaces sin hash válido
+                if (href === '#' || href === '') return;
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    const headerHeight = 80;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    },
+
+    // ============= FAQ (PREGUNTAS FRECUENTES) =============
+    initFAQ() {
+        const faqItems = document.querySelectorAll('.faq__item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq__question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Cerrar todos los items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                // Abrir el clickeado si no estaba activo
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    },
+
+    // ============= FORMULARIO DE CONTACTO =============
+    initForm() {
+        const form = document.getElementById('budget-form');
+        const formStatus = document.getElementById('form-status');
+        
+        if (form) {
+            form.addEventListener('submit', (e) => this.handleFormSubmit(e, form, formStatus));
+        }
+    },
+
+    async handleFormSubmit(e, form, formStatus) {
+        e.preventDefault();
+        
+        // Validar formulario
+        if (!this.validateForm(form)) {
+            this.showFormStatus(formStatus, 'error', 'Por favor, completa todos los campos requeridos.');
+            return;
+        }
+        
+        // Obtener datos del formulario
+        const formData = new FormData(form);
+        const data = {
+            name: formData.get('name'),
+            phone: formData.get('phone'),
+            email: formData.get('email'),
+            address: formData.get('address'),
+            productType: formData.get('product-type'),
+            message: formData.get('message')
+        };
+        
+        // Mostrar loading
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span>Enviando...</span>';
+        submitButton.classList.add('loading');
+        
+        try {
+            // Enviar email usando EmailJS
+            await this.sendEmail(data);
+            
+            // Éxito
+            this.showFormStatus(formStatus, 'success', '¡Gracias! Hemos recibido tu solicitud. Te contactaremos pronto.');
+            //form.reset();
+            
+            // Scroll al mensaje de éxito
+            formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+        } catch (error) {
+            console.error('Error al enviar el formulario:', error);
+            this.showFormStatus(
+                formStatus, 
+                'error', 
+                'Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo o contáctanos directamente por teléfono o WhatsApp.'
+            );
+        } finally {
+            // Restaurar botón
+            this.showFormStatus(formStatus, 'success', '¡Gracias! Hemos recibido tu solicitud. Te contactaremos pronto.');
+            
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalButtonText;
+            submitButton.classList.remove('loading');
+        }
+    },
+
+    validateForm(form) {
+        const requiredFields = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.style.borderColor = 'var(--color-error)';
+            } else {
+                field.style.borderColor = '';
+            }
+        });
+        
+        // Validar email
+        const emailField = form.querySelector('[type="email"]');
+        if (emailField && emailField.value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailField.value)) {
+                isValid = false;
+                emailField.style.borderColor = 'var(--color-error)';
+            }
+        }
+        
+        // Validar teléfono
+        const phoneField = form.querySelector('[type="tel"]');
+        if (phoneField && phoneField.value) {
+            const phoneRegex = /^[0-9\s\+\-\(\)]{9,}$/;
+            if (!phoneRegex.test(phoneField.value)) {
+                isValid = false;
+                phoneField.style.borderColor = 'var(--color-error)';
+            }
+        }
+        
+        return isValid;
+    },
+
+    async sendEmail(data) {
+        // NOTA: Para que esto funcione, debes:
+        // 1. Registrarte en EmailJS (https://www.emailjs.com/)
+        // 2. Crear un servicio de email
+        // 3. Crear un template con las siguientes variables:
+        //    {{name}}, {{email}}, {{phone}}, {{address}}, {{productType}}, {{message}}
+        // 4. Reemplazar los valores en EMAILJS_CONFIG al inicio del archivo
+        
+        // Comprobar si EmailJS está configurado
+        if (EMAILJS_CONFIG.serviceID === 'TU_SERVICE_ID') {
+            console.warn('⚠️ EmailJS no está configurado. Por favor, configura tus credenciales en el archivo JavaScript.');
+            
+            // Simular envío exitoso para demo
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    console.log('📧 Datos del formulario (DEMO):', data);
+                    resolve();
+                }, 1500);
+            });
+        }
+        
+        // Cargar EmailJS si no está cargado
+        if (typeof emailjs === 'undefined') {
+            await this.loadEmailJS();
+        }
+        
+        // Preparar parámetros para el template
+        const templateParams = {
+            to_email: 'correo@prueba.com',
+            from_name: data.name,
+            from_email: data.email,
+            phone: data.phone,
+            address: data.address || 'No especificada',
+            product_type: this.getProductTypeName(data.productType),
+            message: data.message,
+            reply_to: data.email
+        };
+        
+        // Enviar email
+        return emailjs.send(
+            EMAILJS_CONFIG.serviceID,
+            EMAILJS_CONFIG.templateID,
+            templateParams,
+            EMAILJS_CONFIG.publicKey
+        );
+    },
+
+    loadEmailJS() {
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+            script.onload = () => {
+                emailjs.init(EMAILJS_CONFIG.publicKey);
+                resolve();
+            };
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    },
+
+    getProductTypeName(value) {
+        const productTypes = {
+            'ventanas-correderas': 'Ventanas Correderas',
+            'ventanas-abatibles': 'Ventanas Abatibles',
+            'ventanas-replegables': 'Ventanas Replegables',
+            'puertas-correderas': 'Puertas Correderas',
+            'puertas-abatibles': 'Puertas Abatibles',
+            'puertas-entrada': 'Puertas de Entrada',
+            'puertas-cochera': 'Puertas de Cochera',
+            'mosquiteras-fijas': 'Mosquiteras Fijas',
+            'mosquiteras-correderas': 'Mosquiteras Correderas',
+            'mosquiteras-enrollables': 'Mosquiteras Enrollables',
+            'otro': 'Otro'
+        };
+        return productTypes[value] || value;
+    },
+
+    showFormStatus(statusElement, type, message) {
+        statusElement.className = 'form__status';
+        statusElement.classList.add(`form__status--${type}`);
+        statusElement.textContent = message;
+        
+        // Auto-ocultar después de 10 segundos
+        setTimeout(() => {
+            statusElement.style.display = 'none';
+        }, 10000);
+    },
+
+    // ============= EFECTOS DE SCROLL =============
+    initScrollEffects() {
+        // Intersection Observer para animaciones al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observar elementos que queremos animar
+        const animatedElements = document.querySelectorAll(`
+            .service-card,
+            .product-category,
+            .gallery__item,
+            .faq__item,
+            .certification-badge
+        `);
+        
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    },
+
+    // ============= GALERÍA =============
+    initGallery() {
+        const galleryItems = document.querySelectorAll('.gallery__item');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const img = this.querySelector('.gallery__img');
+                if (img) {
+                    // Aquí podrías abrir un lightbox o modal
+                    // Por ahora solo hacemos un efecto visual
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                }
+            });
+        });
+    }
+};
+
+// ============= UTILIDADES =============
+const Utils = {
+    // Formatear número de teléfono para WhatsApp
+    formatPhoneForWhatsApp(phone) {
+        return phone.replace(/\D/g, '');
+    },
+    
+    // Detectar si es dispositivo móvil
+    isMobile() {
+        return window.innerWidth <= 768;
+    },
+    
+    // Debounce para optimizar eventos
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+};
+
+// ============= INICIALIZACIÓN =============
+document.addEventListener('DOMContentLoaded', () => {
+    App.init();
+    
+    // Log de bienvenida
+    console.log('%c🏗️ Industrias Dos Vientos', 'font-size: 20px; font-weight: bold; color: #3498db;');
+    console.log('%cWeb desarrollada con ❤️ usando HTML, CSS y JavaScript', 'color: #7f8c8d;');
+    
+    // Detectar cambios de orientación
+    window.addEventListener('orientationchange', () => {
+        location.reload();
+    });
+});
+
+// ============= MANEJO DE ERRORES GLOBAL =============
+window.addEventListener('error', (e) => {
+    console.error('Error detectado:', e.error);
+});
+
+// ============= OPTIMIZACIÓN DE RENDIMIENTO =============
+// Lazy loading para imágenes
+if ('loading' in HTMLImageElement.prototype) {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+        img.src = img.dataset.src || img.src;
+    });
+} else {
+    // Fallback para navegadores que no soportan lazy loading
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+    document.body.appendChild(script);
+}
+
+// ============= EXPORT (para testing o módulos) =============
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { App, Utils };
+}

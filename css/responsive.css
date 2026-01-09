@@ -1,0 +1,481 @@
+/* ===================================
+   INDUSTRIAS DOS VIENTOS - RESPONSIVE
+   Media queries para diferentes dispositivos
+   =================================== */
+
+/* ============= TABLET (Max 1024px) ============= */
+@media screen and (max-width: 1024px) {
+    :root {
+        --font-size-5xl: 2.5rem;
+        --font-size-4xl: 2rem;
+        --font-size-3xl: 1.75rem;
+        --spacing-4xl: 4rem;
+    }
+    
+    .hero__container {
+        gap: var(--spacing-3xl);
+    }
+    
+    .contact__container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer__content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-2xl);
+    }
+
+    .location__content {
+        gap: var(--spacing-3xl);
+    }
+    
+    .location__map-container {
+        height: 500px;
+    }
+}
+
+/* ============= MOBILE LANDSCAPE (Max 768px) ============= */
+@media screen and (max-width: 768px) {
+    :root {
+        --font-size-5xl: 2rem;
+        --font-size-4xl: 1.75rem;
+        --font-size-3xl: 1.5rem;
+        --font-size-2xl: 1.25rem;
+        --spacing-4xl: 3rem;
+        --spacing-3xl: 2.5rem;
+        --spacing-2xl: 2rem;
+    }
+    
+    /* Navegación móvil */
+    .nav__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        max-width: 350px;
+        height: 100vh;
+        background-color: var(--color-white);
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        padding: var(--spacing-4xl) var(--spacing-xl);
+        transition: right var(--transition-slow);
+        z-index: 1001;
+    }
+    
+    .nav__menu.show-menu {
+        right: 0;
+    }
+    
+    .nav__list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-lg);
+    }
+    
+    .nav__link {
+        font-size: var(--font-size-base);
+    }
+    
+    .nav__link--cta {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .nav__close {
+        display: block;
+        position: absolute;
+        top: var(--spacing-lg);
+        right: var(--spacing-lg);
+        font-size: var(--font-size-3xl);
+        color: var(--color-gray-700);
+        cursor: pointer;
+    }
+    
+    .nav__close-icon {
+        font-style: normal;
+    }
+    
+    .nav__toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        padding: var(--spacing-sm);
+    }
+    
+    .nav__toggle-line {
+        width: 28px;
+        height: 3px;
+        background-color: var(--color-gray-800);
+        border-radius: var(--border-radius-full);
+        transition: all var(--transition-base);
+    }
+    
+    .nav__toggle.active .nav__toggle-line:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+    
+    .nav__toggle.active .nav__toggle-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav__toggle.active .nav__toggle-line:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+    
+    /* Hero Section */
+    .hero__container {
+        padding: var(--spacing-3xl) var(--container-padding);
+    }
+    
+    .hero__content {
+        max-width: 100%;
+    }
+    
+    .hero__title {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .hero__description {
+        font-size: var(--font-size-lg);
+        max-width: 100%;
+    }
+    
+    .hero__buttons {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .hero__buttons .btn {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    /* Services */
+    .services__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .certifications__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    /* Products */
+    .product-category {
+        padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+    
+    .product-category__items {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Gallery */
+    .gallery__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer */
+    .footer__content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+    }
+    
+    /* Form */
+    .form__row {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact__form {
+        padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+    
+    /* WhatsApp float */
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .location__content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+    }
+    
+    .location__info {
+        position: static;
+    }
+    
+    .location__title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .location__map-container {
+        height: 450px;
+    }
+    
+    .location__map-card {
+        max-width: 250px;
+        padding: var(--spacing-md);
+    }
+}
+
+/* ============= MOBILE PORTRAIT (Max 480px) ============= */
+@media screen and (max-width: 480px) {
+    :root {
+        --font-size-5xl: 1.75rem;
+        --font-size-4xl: 1.5rem;
+        --font-size-3xl: 1.25rem;
+        --spacing-4xl: 2.5rem;
+        --spacing-3xl: 2rem;
+        --container-padding: var(--spacing-md);
+    }
+    
+    .nav {
+        height: 70px;
+    }
+    
+    .nav__logo-img {
+        height: 35px;
+    }
+    
+    .hero {
+        padding-top: 70px;
+        min-height: 100vh;
+    }
+    
+    .hero__container {
+        padding: var(--spacing-2xl) var(--container-padding);
+    }
+    
+    .hero__title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .hero__description {
+        font-size: var(--font-size-base);
+    }
+    
+    .hero__buttons .btn {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .section-subtitle {
+        font-size: var(--font-size-base);
+    }
+    
+    .btn {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-sm) var(--spacing-lg);
+    }
+    
+    .service-card {
+        padding: var(--spacing-xl);
+    }
+    
+    .certifications {
+        padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+    
+    .certifications__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-category__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+    
+    .contact__info {
+        padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+    
+    .footer {
+        padding: var(--spacing-3xl) 0 var(--spacing-lg);
+    }
+
+    .location {
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    .location__title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .location__text {
+        font-size: var(--font-size-sm);
+    }
+    
+    .location__details-grid {
+        gap: var(--spacing-md);
+    }
+    
+    .location__detail-card {
+        padding: var(--spacing-md);
+    }
+    
+    .location__map-container {
+        height: 400px;
+        border-radius: var(--border-radius-md);
+    }
+    
+    .location__map-card {
+        position: static;
+        margin-top: var(--spacing-md);
+        max-width: 100%;
+    }
+}
+
+/* ============= AJUSTES ESPECÍFICOS ============= */
+
+/* Overlay de menú móvil */
+@media screen and (max-width: 768px) {
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-base);
+        z-index: 1000;
+    }
+    
+    .nav-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Mejoras de accesibilidad en móvil */
+@media screen and (max-width: 768px) {
+    .faq__question {
+        padding: var(--spacing-lg);
+        font-size: var(--font-size-base);
+    }
+    
+    .faq__answer p {
+        padding: 0 var(--spacing-lg) var(--spacing-lg);
+    }
+    
+    .gallery__item {
+        min-height: 250px;
+    }
+}
+
+/* Optimización para pantallas muy pequeñas */
+@media screen and (max-width: 360px) {
+    :root {
+        --spacing-4xl: 2rem;
+        --spacing-3xl: 1.5rem;
+    }
+    
+    .hero__buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--spacing-md);
+    }
+    
+    .hero__buttons .btn {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .hero__title {
+        font-size: var(--font-size-2xl);
+        line-height: 1.2;
+    }
+    
+    .hero__description {
+        font-size: var(--font-size-sm);
+    }
+    
+    .product-item__image {
+        height: 180px;
+    }
+}
+
+/* Landscape mode para móviles */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: var(--spacing-4xl) 0;
+    }
+    
+    .nav {
+        height: 60px;
+    }
+}
+
+/* Ajustes para tablets en landscape */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .hero__container {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-2xl);
+    }
+    
+    .product-category__items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gallery__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mejoras de rendimiento para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+    .service-card:hover,
+    .product-item:hover,
+    .gallery__item:hover {
+        transform: none;
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+    
+    .service-card:active,
+    .product-item:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Soporte para modo oscuro del sistema (opcional) */
+@media (prefers-color-scheme: dark) {
+    /* Puedes descomentar esto si quieres soporte para modo oscuro */
+    /*
+    :root {
+        --color-white: #0a0e12;
+        --color-black: #ffffff;
+        --color-gray-50: #1a252f;
+        --color-gray-100: #2c3e50;
+    }
+    */
+}
+
+/* Animaciones reducidas para usuarios que las prefieren */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+

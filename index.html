@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Industrias Dos Vientos - Carpintería metálica especializada en aluminio en Pozo Alcón, Jaén. Ventanas, puertas, mosquiteras y más.">
+    <meta name="keywords" content="carpintería metálica, aluminio, ventanas, puertas, mosquiteras, Pozo Alcón, Jaén">
+    <title>Industrias Dos Vientos | Carpintería Metálica en Aluminio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/seccion-ubicacion.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicon placeholder -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <img src="assets/images/logo.png" alt="Industrias Dos Vientos Logo" class="nav__logo-img">
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#inicio" class="nav__link active">Inicio</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#servicios" class="nav__link">Servicios</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#productos" class="nav__link">Productos</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#galeria" class="nav__link">Galería</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#faq" class="nav__link">FAQ</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contacto" class="nav__link nav__link--cta">Presupuesto</a>
+                    </li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class="nav__close-icon">✕</i>
+                </div>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero__background">
+            <img src="assets/images/hero-image.png" alt="Carpintería metálica profesional" class="hero__background-img">
+            <div class="hero__overlay"></div>
+        </div>
+
+        <div class="hero__container container">
+            <div class="hero__content">
+                <h1 class="hero__title">
+                    Diseño y Precisión en <span class="hero__title--highlight">Aluminio</span>
+                </h1>
+                <p class="hero__description">
+                    Soluciones de alta calidad. Ventanas, puertas y mosquiteras diseñadas para transformar espacios con
+                    elegancia y funcionalidad.
+                </p>
+                <div class="hero__buttons">
+                    <a href="#contacto" class="btn btn--primary">Solicitar Presupuesto</a>
+                    <a href="#productos" class="btn btn--secondary btn--secondary-hero">Ver Productos</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- WhatsApp Float Button -->
+        <a href="https://wa.me/34600000000?text=Hola,%20me%20gustaría%20solicitar%20información" class="whatsapp-float"
+            target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+            <svg viewBox="0 0 32 32" class="whatsapp-icon">
+                <path fill="currentColor"
+                    d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.417 1.425-5.31-0.321-0.532c-1.355-2.227-2.073-4.783-2.073-7.413 0-7.72 6.28-14 14-14s14 6.28 14 14-6.28 14-14 14zM21.713 18.461c-0.397-0.197-2.343-1.157-2.707-1.29-0.363-0.13-0.627-0.197-0.893 0.197-0.265 0.397-1.027 1.29-1.257 1.557-0.233 0.263-0.463 0.297-0.86 0.1-0.397-0.197-1.673-0.617-3.187-1.967-1.177-1.050-1.973-2.347-2.203-2.743-0.233-0.397-0.025-0.613 0.173-0.81 0.177-0.177 0.397-0.463 0.593-0.693 0.197-0.233 0.263-0.397 0.397-0.663 0.133-0.267 0.067-0.5-0.033-0.697-0.1-0.197-0.893-2.15-1.223-2.944-0.323-0.777-0.65-0.673-0.893-0.683-0.23-0.013-0.497-0.013-0.763-0.013s-0.697 0.1-1.060 0.497c-0.363 0.397-1.39 1.36-1.39 3.313s1.423 3.843 1.62 4.113c0.197 0.263 2.78 4.247 6.733 5.957 0.94 0.407 1.677 0.65 2.25 0.833 0.95 0.3 1.813 0.257 2.497 0.157 0.76-0.113 2.343-0.957 2.673-1.88 0.333-0.923 0.333-1.713 0.233-1.88-0.097-0.163-0.363-0.263-0.76-0.463z" />
+            </svg>
+        </a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-subtitle">Soluciones integrales en carpintería metálica y aluminio</p>
+            </div>
+
+            <div class="services__grid">
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M3 9h18M9 3v18" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Fabricación a Medida</h3>
+                    <p class="service-card__description">
+                        Diseñamos y fabricamos ventanas, puertas y cerramientos personalizados según tus necesidades
+                        específicas.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                            <line x1="12" y1="22.08" x2="12" y2="12" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Instalación Profesional</h3>
+                    <p class="service-card__description">
+                        Equipo especializado con años de experiencia garantizando una instalación perfecta y duradera.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Mantenimiento y Reparación</h3>
+                    <p class="service-card__description">
+                        Servicio técnico especializado para mantener tus instalaciones en perfecto estado.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Asesoramiento Técnico</h3>
+                    <p class="service-card__description">
+                        Te guiamos en la elección de los mejores materiales y soluciones para tu proyecto.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="certifications">
+                <h3 class="certifications__title">Calidad Garantizada</h3>
+                <div class="certifications__grid">
+                    <div class="certification-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg>
+                        <span>Garantía de 10 años</span>
+                    </div>
+                    <div class="certification-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
+                        </svg>
+                        <span>Servicio 24/7</span>
+                    </div>
+                    <div class="certification-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                        <span>Profesionales Certificados</span>
+                    </div>
+                    <div class="certification-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                        </svg>
+                        <span>Atención Personalizada</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="productos">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Productos</h2>
+                <p class="section-subtitle">Amplia gama de soluciones en aluminio para tu hogar o negocio</p>
+            </div>
+
+            <div class="products__categories">
+                <!-- Ventanas -->
+                <div class="product-category">
+                    <div class="product-category__header">
+                        <div class="product-category__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <line x1="3" y1="9" x2="21" y2="9" />
+                                <line x1="9" y1="3" x2="9" y2="21" />
+                            </svg>
+                        </div>
+                        <h3 class="product-category__title">Ventanas</h3>
+                    </div>
+                    <p class="product-category__description">
+                        Ventanas de aluminio con o sin persiana, diseñadas para máxima eficiencia energética y
+                        aislamiento.
+                    </p>
+                    <div class="product-category__items">
+                        <div class="product-item">
+                            <div class="product-item__image">
+                                <img src="assets/images/products/ventana-corredera.png" alt="Ventana Corredera">
+                            </div>
+                            <h4 class="product-item__name">Correderas</h4>
+                            <ul class="product-item__features">
+                                <li>2 o 3 hojas</li>
+                                <li>Con o sin fijo (arriba, abajo o lateral)</li>
+                                <li>Sistema de rodamientos de alta calidad</li>
+                                <li>Cierre hermético</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-item__image">
+                                <img src="assets/images/products/ventana-abatible.jpg" alt="Ventana Abatible">
+                            </div>
+                            <h4 class="product-item__name">Abatibles</h4>
+                            <ul class="product-item__features">
+                                <li>Una o dos hojas</li>
+                                <li>Con o sin fijo</li>
+                                <li>Sistema oscilo-batiente</li>
+                                <li>Excelente ventilación</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-item__image">
+                                <img src="assets/images/products/ventana-replegable.jpg" alt="Ventana Replegable">
+                            </div>
+                            <h4 class="product-item__name">Replegables</h4>
+                            <ul class="product-item__features">
+                                <li>Apertura tipo acordeón</li>
+                                <li>Máxima apertura</li>
+                                <li>Ideal para terrazas y balcones</li>
+                                <li>Ahorro de espacio</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Puertas -->
+                <div class="product-category">
+                    <div class="product-category__header">
+                        <div class="product-category__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <circle cx="16" cy="12" r="1" />
+                            </svg>
+                        </div>
+                        <h3 class="product-category__title">Puertas</h3>
+                    </div>
+                    <p class="product-category__description">
+                        Puertas de aluminio para todo tipo de espacios, desde balconeras hasta puertas de seguridad.
+                    </p>
+                    <div class="product-category__items">
+                        <div class="product-item">
+                            <div class="product-item__image">
+                                <img src="assets/images/products/puerta-corredera.jpg" alt="Puerta Corredera">
+                            </div>
+                            <h4 class="product-item__name">Correderas</h4>
+                            <ul class="product-item__features">
+                                <li>Sistema de deslizamiento suave</li>
+                                <li>Ahorro de espacio</li>
+                                <li>Vidrio de seguridad</li>
+                                <li>Diversos acabados</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-item__image">
+                                <img src="assets/images/products/puerta-abatible.jpg" alt="Puerta Abatible">
+                            </div>
+                            <h4 class="product-item__name">Abatibles</h4>
+                            <ul class="product-item__features">
+                                <li>Balconeras</li>
+                                <li>Puertas de patio</li>
+                                <li>Una o dos hojas</li>
+                                <li>Amplias posibilidades de diseño</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-item__image">
+                                <img src="assets/images/products/puerta-entrada.png" alt="Puerta de Entrada">
+                            </div>
+                            <h4 class="product-item__name">Puertas de Entrada</h4>
+                            <ul class="product-item__features">
+                                <li>Con o sin panel decorativo</li>
+                                <li>Con o sin fijos laterales/superior</li>
+                                <li>Puertas de seguridad</li>
+                                <li>Múltiples puntos de cierre</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-item__image">
+                                <img src="assets/images/products/puerta-cochera.jpg" alt="Puerta de Cochera">
+                            </div>
+                            <h4 class="product-item__name">Puertas de Cochera</h4>
+                            <ul class="product-item__features">
+                                <li>Motorizadas</li>
+                                <li>Seccionables</li>
+                                <li>Enrollables</li>
+                                <li>Control remoto</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mosquiteras -->
+                <div class="product-category">
+                    <div class="product-category__header">
+                        <div class="product-category__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <line x1="3" y1="8" x2="21" y2="8" />
+                                <line x1="3" y1="12" x2="21" y2="12" />
+                                <line x1="3" y1="16" x2="21" y2="16" />
+                                <line x1="8" y1="3" x2="8" y2="21" />
+                                <line x1="12" y1="3" x2="12" y2="21" />
+                                <line x1="16" y1="3" x2="16" y2="21" />
+                            </svg>
+                        </div>
+                        <h3 class="product-category__title">Mosquiteras</h3>
+                    </div>
+                    <p class="product-category__description">
+                        Protección efectiva contra insectos sin renunciar a la ventilación y la luz natural.
+                    </p>
+                    <div class="product-category__items">
+                        <div class="product-item">
+                            <div class="product-item__image">
+                                <img src="assets/images/products/mosquitera-fija.jpg" alt="Mosquitera Fija">
+                            </div>
+                            <h4 class="product-item__name">Fijas</h4>
+                            <ul class="product-item__features">
+                                <li>Instalación permanente</li>
+                                <li>Marco de aluminio resistente</li>
+                                <li>Tela de fibra de vidrio</li>
+                                <li>Fácil limpieza</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-item__image">
+                                <img src="assets/images/products/mosquitera-corredera.jpg" alt="Mosquitera Corredera">
+                            </div>
+                            <h4 class="product-item__name">Correderas</h4>
+                            <ul class="product-item__features">
+                                <li>Sistema de deslizamiento</li>
+                                <li>Para ventanas y puertas</li>
+                                <li>Fácil uso</li>
+                                <li>Sin obstáculos</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-item">
+                            <div class="product-item__image">
+                                <img src="assets/images/products/mosquitera-enrollable.jpg" alt="Mosquitera Enrollable">
+                            </div>
+                            <h4 class="product-item__name">Enrollables</h4>
+                            <ul class="product-item__features">
+                                <li>Recogida vertical u horizontal</li>
+                                <li>Sistema de freno suave</li>
+                                <li>Discreta cuando no se usa</li>
+                                <li>Ideal para puertas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Galería de Trabajos</h2>
+                <p class="section-subtitle">Algunos de nuestros proyectos realizados</p>
+            </div>
+
+            <div class="gallery__grid">
+                <div class="gallery__item" data-category="ventanas">
+                    <img src="assets/images/gallery/project-1.jpg" alt="Proyecto de ventanas correderas"
+                        class="gallery__img">
+                    <div class="gallery__overlay">
+                        <h4 class="gallery__title">Ventanas Correderas</h4>
+                        <p class="gallery__description">Instalación completa en vivienda unifamiliar</p>
+                    </div>
+                </div>
+
+                <div class="gallery__item" data-category="puertas">
+                    <img src="assets/images/gallery/project-2.jpg" alt="Proyecto de puerta de entrada"
+                        class="gallery__img">
+                    <div class="gallery__overlay">
+                        <h4 class="gallery__title">Puerta de Entrada</h4>
+                        <p class="gallery__description">Puerta de seguridad con panel decorativo</p>
+                    </div>
+                </div>
+
+                <div class="gallery__item" data-category="ventanas">
+                    <img src="assets/images/gallery/project-3.jpg" alt="Proyecto de ventanas abatibles"
+                        class="gallery__img">
+                    <div class="gallery__overlay">
+                        <h4 class="gallery__title">Ventanas Abatibles</h4>
+                        <p class="gallery__description">Sistema oscilo-batiente para oficinas</p>
+                    </div>
+                </div>
+
+                <div class="gallery__item" data-category="mosquiteras">
+                    <img src="assets/images/gallery/project-4.jpg" alt="Proyecto de mosquiteras" class="gallery__img">
+                    <div class="gallery__overlay">
+                        <h4 class="gallery__title">Mosquiteras Enrollables</h4>
+                        <p class="gallery__description">Instalación en terraza acristalada</p>
+                    </div>
+                </div>
+
+                <div class="gallery__item" data-category="puertas">
+                    <img src="assets/images/gallery/project-5.jpg" alt="Proyecto de puerta de cochera"
+                        class="gallery__img">
+                    <div class="gallery__overlay">
+                        <h4 class="gallery__title">Puerta de Cochera</h4>
+                        <p class="gallery__description">Sistema motorizado seccional</p>
+                    </div>
+                </div>
+
+                <div class="gallery__item" data-category="ventanas">
+                    <img src="assets/images/gallery/project-6.jpg" alt="Proyecto de ventanas replegables"
+                        class="gallery__img">
+                    <div class="gallery__overlay">
+                        <h4 class="gallery__title">Ventanas Replegables</h4>
+                        <p class="gallery__description">Cerramiento de balcón panorámico</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <p class="section-subtitle">Resolvemos tus dudas más comunes</p>
+            </div>
+
+            <div class="faq__container">
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>¿Cuánto tiempo tarda la instalación de ventanas?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>El tiempo de instalación depende del número de ventanas y la complejidad del proyecto.
+                            Generalmente, una ventana estándar se instala en 2-3 horas. Para proyectos completos,
+                            realizamos una visita previa para darte un plazo exacto.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>¿Ofrecen garantía en los productos?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Sí, todos nuestros productos cuentan con una garantía de 10 años tanto en materiales como en
+                            instalación. Además, los perfiles de aluminio tienen una durabilidad excepcional que puede
+                            superar los 30 años con el mantenimiento adecuado.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>¿Qué tipo de mantenimiento necesitan las ventanas de aluminio?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>El aluminio requiere muy poco mantenimiento. Se recomienda una limpieza regular con agua y
+                            jabón neutro, y lubricar los mecanismos de apertura una vez al año. No necesita pintura ni
+                            tratamientos especiales.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>¿Puedo elegir el color de las ventanas y puertas?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Absolutamente. Disponemos de una amplia gama de colores y acabados: blanco, gris, negro,
+                            imitación madera, y muchos más. También puedes elegir acabados mate, brillo o texturizados
+                            según tus preferencias.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>¿Realizan trabajos fuera de Pozo Alcón?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Sí, trabajamos en Pozo Alcón y toda España. Para proyectos en otras zonas, consúltanos y
+                            estudiaremos tu caso particular.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>¿Cuál es la diferencia entre ventanas correderas y abatibles?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Las ventanas correderas se deslizan horizontalmente y ahorran espacio, ideales para terrazas.
+                            Las abatibles se abren hacia dentro o fuera, ofrecen mejor hermeticidad y son perfectas para
+                            dormitorios y salones. Te asesoramos para elegir la mejor opción según tu espacio.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>¿El presupuesto es gratuito?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Sí, todos nuestros presupuestos son gratuitos y sin compromiso. Visitamos tu hogar o negocio
+                            para tomar medidas exactas y ofrecerte el mejor precio ajustado a tus necesidades.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>¿Las mosquiteras se pueden instalar en cualquier ventana?</span>
+                        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Sí, fabricamos mosquiteras a medida para todo tipo de ventanas y puertas, independientemente
+                            del sistema de apertura. Tenemos soluciones para correderas, abatibles, replegables y
+                            puertas de entrada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="brands" id="marcas">
+        <div class="container">
+            <div class="brands__header">
+                <span class="brands__badge">Trabajamos con las mejores</span>
+                <h2 class="brands__title">Marcas de Confianza</h2>
+                <div class="brands__divider"></div>
+                <p class="brands__subtitle">
+                    Colaboramos con los fabricantes más reconocidos del sector para ofrecerte
+                    productos de máxima calidad y garantía
+                </p>
+            </div>
+
+            <div class="brands__item__main">
+                <img src="assets/images/brands/strugal-logo.png" alt="Marca 1" class="brands__logo">
+            </div>
+
+            <div class="brands__grid">
+                <div class="brands__item">
+                    <img src="assets/images/brands/stac-logo.png" alt="Marca 2" class="brands__logo">
+                </div>
+                <div class="brands__item">
+                    <img src="assets/images/brands/tesa-logo.png" alt="Marca 3" class="brands__logo">
+                </div>
+                <div class="brands__item">
+                    <img src="assets/images/brands/ucem-logo.jpg" alt="Marca 4" class="brands__logo">
+                </div>
+                <div class="brands__item">
+                    <img src="assets/images/brands/ilargi-logo.jpg" alt="Marca 5" class="brands__logo">
+                </div>
+                <div class="brands__item">
+                    <img src="assets/images/brands/iseo-logo.svg" alt="Marca 6" class="brands__logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="ubicacion">
+        <div class="container">
+            <div class="location__content">
+                <div class="location__info">
+                    <span class="location__badge">Dónde nos encontramos</span>
+                    <h2 class="location__title">Desde Pozo Alcón a toda España</h2>
+                    <div class="location__divider"></div>
+                    <p class="location__text">
+                        Aunque nuestro taller se encuentra en Pozo Alcón, en nuestro día a día llevamos
+                        nuestros servicios a todos los rincones de España. Hemos tenido el placer
+                        de instalar nuestros productos en numerosas localidades y esperamos que así lo siga
+                        siendo en los próximos años.
+                    </p>
+                    <p class="location__text">
+                        Además, disponemos de diferentes opciones de contacto para que nos puedas encontrar
+                        fácilmente y podamos ofrecerte una atención al cliente rápida y eficaz.
+                    </p>
+                </div>
+
+                <div class="location__map-container">
+                    <!-- Google Maps iframe -->
+                    <iframe class="location__map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.5!2d-2.8!3d37.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQyJzAwLjAiTiAywrA0OCcwMC4wIlc!5e0!3m2!1ses!2ses!4v1234567890"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+
+                    <!-- Info card sobre el mapa -->
+                    <div class="location__map-card">
+                        <h4 class="location__map-card-title">Industrias Dos Vientos</h4>
+                        <p class="location__map-card-address">Calle Principal, 123<br>23485 Pozo Alcón, Jaén</p>
+                        <div class="location__map-card-rating">
+                            <span class="location__stars">★★★★★</span>
+                            <span class="location__rating-text">4.9 · 51 reseñas</span>
+                        </div>
+                        <a href="https://www.google.com/maps?q=Pozo+Alcón,+Jaén" target="_blank"
+                            rel="noopener noreferrer" class="location__map-link">
+                            Ampliar el mapa →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Budget Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Solicita tu Presupuesto</h2>
+                <p class="section-subtitle">Sin compromiso y totalmente gratuito</p>
+            </div>
+
+            <div class="contact__container">
+                <div class="contact__info">
+                    <h3 class="contact__info-title">Información de Contacto</h3>
+                    <p class="contact__info-text">
+                        Estamos aquí para ayudarte. Rellena el formulario o contáctanos directamente.
+                    </p>
+
+                    <div class="contact__details">
+                        <div class="contact__detail">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <div>
+                                <h4>Dirección</h4>
+                                <p>Avenida del Fontanar, 1<br>Pozo Alcón, Jaén 23485</p>
+                            </div>
+                        </div>
+
+                        <div class="contact__detail">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p><a href="tel:+34605431127">+34 605 431 127</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact__detail">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:correo@prueba.com">correo@prueba.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact__detail">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            <div>
+                                <h4>Horario</h4>
+                                <p>Lunes a Viernes: 9:00 - 19:00<br>Sábados: 9:00 - 14:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact__whatsapp-cta">
+                        <h4>¿Prefieres WhatsApp?</h4>
+                        <a href="https://wa.me/34605431127?text=Hola,%20me%20gustaría%20solicitar%20un%20presupuesto"
+                            class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 32 32" class="btn__icon">
+                                <path fill="currentColor"
+                                    d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.417 1.425-5.31-0.321-0.532c-1.355-2.227-2.073-4.783-2.073-7.413 0-7.72 6.28-14 14-14s14 6.28 14 14-6.28 14-14 14zM21.713 18.461c-0.397-0.197-2.343-1.157-2.707-1.29-0.363-0.13-0.627-0.197-0.893 0.197-0.265 0.397-1.027 1.29-1.257 1.557-0.233 0.263-0.463 0.297-0.86 0.1-0.397-0.197-1.673-0.617-3.187-1.967-1.177-1.050-1.973-2.347-2.203-2.743-0.233-0.397-0.025-0.613 0.173-0.81 0.177-0.177 0.397-0.463 0.593-0.693 0.197-0.233 0.263-0.397 0.397-0.663 0.133-0.267 0.067-0.5-0.033-0.697-0.1-0.197-0.893-2.15-1.223-2.944-0.323-0.777-0.65-0.673-0.893-0.683-0.23-0.013-0.497-0.013-0.763-0.013s-0.697 0.1-1.060 0.497c-0.363 0.397-1.39 1.36-1.39 3.313s1.423 3.843 1.62 4.113c0.197 0.263 2.78 4.247 6.733 5.957 0.94 0.407 1.677 0.65 2.25 0.833 0.95 0.3 1.813 0.257 2.497 0.157 0.76-0.113 2.343-0.957 2.673-1.88 0.333-0.923 0.333-1.713 0.233-1.88-0.097-0.163-0.363-0.263-0.76-0.463z" />
+                            </svg>
+                            Contactar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact__form" id="budget-form">
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="name" class="form__label">Nombre completo *</label>
+                            <input type="text" id="name" name="name" class="form__input" required>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="phone" class="form__label">Teléfono *</label>
+                            <input type="tel" id="phone" name="phone" class="form__input" required>
+                        </div>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="email" class="form__label">Email *</label>
+                        <input type="email" id="email" name="email" class="form__input" required>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="address" class="form__label">Dirección</label>
+                        <input type="text" id="address" name="address" class="form__input"
+                            placeholder="Calle, número, localidad">
+                    </div>
+
+                    <div class="form__group">
+                        <label for="product-type" class="form__label">Tipo de producto *</label>
+                        <select id="product-type" name="product-type" class="form__select" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="ventanas-correderas">Ventanas Correderas</option>
+                            <option value="ventanas-abatibles">Ventanas Abatibles</option>
+                            <option value="ventanas-replegables">Ventanas Replegables</option>
+                            <option value="puertas-correderas">Puertas Correderas</option>
+                            <option value="puertas-abatibles">Puertas Abatibles</option>
+                            <option value="puertas-entrada">Puertas de Entrada</option>
+                            <option value="puertas-cochera">Puertas de Cochera</option>
+                            <option value="mosquiteras-fijas">Mosquiteras Fijas</option>
+                            <option value="mosquiteras-correderas">Mosquiteras Correderas</option>
+                            <option value="mosquiteras-enrollables">Mosquiteras Enrollables</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="message" class="form__label">Descripción del proyecto *</label>
+                        <textarea id="message" name="message" class="form__textarea" rows="5"
+                            placeholder="Cuéntanos qué necesitas: medidas aproximadas, número de unidades, características especiales, etc."
+                            required></textarea>
+                    </div>
+
+                    <div class="form__group form__group--checkbox">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy" class="form__checkbox-label">
+                            Acepto la <a href="#" class="form__link">política de privacidad</a> y el tratamiento de mis
+                            datos *
+                        </label>
+                    </div>
+
+                    <div class="form__buttons">
+                        <button type="submit" class="btn btn--primary btn--full">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                class="btn__icon">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            Enviar Solicitud
+                        </button>
+                    </div>
+
+                    <div class="form__status" id="form-status"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials (commented for future use) -->
+    <!--
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Lo que Dicen Nuestros Clientes</h2>
+                <p class="section-subtitle">La satisfacción de nuestros clientes es nuestra mejor carta de presentación</p>
+            </div>
+            
+            <div class="testimonials__grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-card__rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <p class="testimonial-card__text">
+                        "Excelente trabajo. Muy profesionales y puntuales. Las ventanas quedaron perfectas y el acabado es impecable. Totalmente recomendables."
+                    </p>
+                    <div class="testimonial-card__author">
+                        <strong>María González</strong>
+                        <span>Cliente residencial</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-card__rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <p class="testimonial-card__text">
+                        "Instalaron todas las puertas de mi negocio en tiempo récord y con una calidad excepcional. El trato ha sido inmejorable desde el principio."
+                    </p>
+                    <div class="testimonial-card__author">
+                        <strong>Juan Pérez</strong>
+                        <span>Cliente comercial</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-card__rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <p class="testimonial-card__text">
+                        "Las mosquiteras enrollables son exactamente lo que necesitaba. Funcionan perfectamente y el servicio postventa es excelente."
+                    </p>
+                    <div class="testimonial-card__author">
+                        <strong>Ana Martínez</strong>
+                        <span>Cliente residencial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <img src="assets/images/logo.png" alt="Industrias Dos Vientos" class="footer__logo">
+                    <p class="footer__description">
+                        Más de 20 años creando soluciones en aluminio para hogares y negocios en Pozo Alcón y toda
+                        España.
+                    </p>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">Enlaces Rápidos</h4>
+                    <ul class="footer__links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">Productos</h4>
+                    <ul class="footer__links">
+                        <li><a href="#productos">Ventanas</a></li>
+                        <li><a href="#productos">Puertas</a></li>
+                        <li><a href="#productos">Mosquiteras</a></li>
+                        <li><a href="#productos">Puertas de Cochera</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">Contacto</h4>
+                    <ul class="footer__contact">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <span>Pozo Alcón, Jaén</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            <span><a href="tel:+34605431127">+34 605 431 127</a></span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <span><a href="mailto:correo@prueba.com">correo@prueba.com</a></span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            <span>Lunes a Viernes: 9:00 - 19:00<br>Sábados: 9:00 - 14:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2024 Industrias Dos Vientos. Todos los derechos reservados. | Pozo Alcón, Jaén</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
