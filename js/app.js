@@ -21,6 +21,8 @@ const App = {
         this.initForm();
         this.initScrollEffects();
         this.initGallery();
+        this.initProductTabs();
+        this.initProductDetail();
     },
 
     // ============= NAVEGACIÓN =============
@@ -152,9 +154,108 @@ const App = {
     initForm() {
         const form = document.getElementById('budget-form');
         const formStatus = document.getElementById('form-status');
-        
+
         if (form) {
+            // Inicializar selector de tipos de producto
+            this.initProductTypeSelector();
+
+            // Pre-rellenar formulario si viene de un producto específico
+            this.prefillFormFromQuote();
+
             form.addEventListener('submit', (e) => this.handleFormSubmit(e, form, formStatus));
+        }
+    },
+
+    initProductTypeSelector() {
+        const categorySelect = document.getElementById('product-category');
+        const typeSelect = document.getElementById('product-type');
+        const typeContainer = document.getElementById('product-type-container');
+
+        if (!categorySelect || !typeSelect || !typeContainer) return;
+
+        // Cuando cambia la categoría, cargar los tipos
+        categorySelect.addEventListener('change', (e) => {
+            const productId = e.target.value;
+
+            if (productId === 'otro' || !productId) {
+                // Ocultar selector de tipos si es "Otro" o no hay selección
+                typeContainer.style.display = 'none';
+                typeSelect.required = false;
+                typeSelect.innerHTML = '<option value="">Primero selecciona una categoría</option>';
+                return;
+            }
+
+            // Verificar si existe en PRODUCT_DATA
+            if (typeof PRODUCT_DATA !== 'undefined' && PRODUCT_DATA[productId]) {
+                const product = PRODUCT_DATA[productId];
+
+                // Cargar tipos del producto
+                typeSelect.innerHTML = '<option value="">Selecciona un tipo</option>';
+                product.types.forEach(type => {
+                    const option = document.createElement('option');
+                    option.value = type.id;
+                    option.textContent = type.title;
+                    typeSelect.appendChild(option);
+                });
+
+                // Mostrar selector de tipos
+                typeContainer.style.display = 'block';
+                typeSelect.required = true;
+            } else {
+                // Si no hay datos del producto, ocultar selector
+                typeContainer.style.display = 'none';
+                typeSelect.required = false;
+            }
+        });
+    },
+
+    prefillFormFromQuote() {
+        const productId = sessionStorage.getItem('quoteProductId');
+        const typeId = sessionStorage.getItem('quoteTypeId');
+        const productName = sessionStorage.getItem('quoteProduct');
+        const typeName = sessionStorage.getItem('quoteType');
+
+        if (productId && typeId) {
+            // Esperar un momento para que el DOM esté listo
+            setTimeout(() => {
+                const categorySelect = document.getElementById('product-category');
+                const typeSelect = document.getElementById('product-type');
+                const typeContainer = document.getElementById('product-type-container');
+
+                if (categorySelect) {
+                    // Seleccionar la categoría
+                    categorySelect.value = productId;
+
+                    // Disparar el evento change para cargar los tipos
+                    const event = new Event('change');
+                    categorySelect.dispatchEvent(event);
+
+                    // Esperar a que se carguen los tipos y seleccionar el tipo específico
+                    setTimeout(() => {
+                        if (typeSelect) {
+                            typeSelect.value = typeId;
+                        }
+
+                        // Rellenar el campo de mensaje
+                        const messageField = document.getElementById('message');
+                        if (messageField && !messageField.value && productName && typeName) {
+                            messageField.value = `Estoy interesado/a en ${productName} - ${typeName}.\n\n`;
+                        }
+
+                        // Hacer scroll al formulario
+                        const contactSection = document.getElementById('contacto');
+                        if (contactSection) {
+                            contactSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }, 100);
+                }
+
+                // Limpiar sessionStorage después de usar
+                sessionStorage.removeItem('quoteProduct');
+                sessionStorage.removeItem('quoteType');
+                sessionStorage.removeItem('quoteTypeId');
+                sessionStorage.removeItem('quoteProductId');
+            }, 300);
         }
     },
 
@@ -374,7 +475,7 @@ const App = {
     // ============= GALERÍA =============
     initGallery() {
         const galleryItems = document.querySelectorAll('.gallery__item');
-        
+
         galleryItems.forEach(item => {
             item.addEventListener('click', function() {
                 const img = this.querySelector('.gallery__img');
@@ -387,6 +488,82 @@ const App = {
                     }, 200);
                 }
             });
+        });
+    },
+
+    // ============= TABS DE PRODUCTOS =============
+    initProductTabs() {
+        const tabs = document.querySelectorAll('.products__tab');
+        const categories = document.querySelectorAll('.product-category');
+
+        if (tabs.length === 0 || categories.length === 0) return;
+
+        // Mostrar solo la primera categoría al inicio
+        categories.forEach((category, index) => {
+            if (index === 0) {
+                category.style.display = 'block';
+            } else {
+                category.style.display = 'none';
+            }
+        });
+
+        // Manejar clicks en tabs
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetCategory = tab.dataset.category;
+
+                // Remover clase activa de todos los tabs
+                tabs.forEach(t => t.classList.remove('products__tab--active'));
+
+                // Añadir clase activa al tab clickeado
+                tab.classList.add('products__tab--active');
+
+                // Ocultar todas las categorías
+                categories.forEach(category => {
+                    category.style.display = 'none';
+                });
+
+                // Mostrar la categoría seleccionada
+                const activeCategory = document.querySelector(`.product-category[data-category="${targetCategory}"]`);
+                if (activeCategory) {
+                    activeCategory.style.display = 'block';
+
+                    // Animar la entrada
+                    activeCategory.style.opacity = '0';
+                    activeCategory.style.transform = 'translateY(20px)';
+
+                    setTimeout(() => {
+                        activeCategory.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                        activeCategory.style.opacity = '1';
+                        activeCategory.style.transform = 'translateY(0)';
+                    }, 10);
+                }
+            });
+        });
+    },
+
+    // ============= DETALLE DE PRODUCTO =============
+    initProductDetail() {
+        // Usar delegación de eventos para manejar clicks en botones de productos
+        // Esto funciona incluso si los productos se ocultan/muestran dinámicamente
+        document.addEventListener('click', (e) => {
+            // Verificar si el click fue en un botón de producto
+            if (e.target.classList.contains('product-item__btn') ||
+                e.target.closest('.product-item__btn')) {
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Buscar el elemento padre product-item
+                const productItem = e.target.closest('.product-item');
+
+                if (productItem) {
+                    const productId = productItem.dataset.product;
+                    if (productId) {
+                        window.location.href = `producto-detalle.html?producto=${productId}`;
+                    }
+                }
+            }
         });
     }
 };
