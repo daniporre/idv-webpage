@@ -23,6 +23,7 @@ const App = {
         this.initGallery();
         this.initProductTabs();
         this.initProductDetail();
+        this.initFeaturedProducts();
     },
 
     // ============= NAVEGACIÓN =============
@@ -214,6 +215,8 @@ const App = {
         const typeId = sessionStorage.getItem('quoteTypeId');
         const productName = sessionStorage.getItem('quoteProduct');
         const typeName = sessionStorage.getItem('quoteType');
+        const isPurchaseMode = sessionStorage.getItem('purchaseMode') === 'true';
+        const productPrice = sessionStorage.getItem('productPrice');
 
         if (productId && typeId) {
             // Esperar un momento para que el DOM esté listo
@@ -221,6 +224,21 @@ const App = {
                 const categorySelect = document.getElementById('product-category');
                 const typeSelect = document.getElementById('product-type');
                 const typeContainer = document.getElementById('product-type-container');
+                const formTitle = document.querySelector('.contact__form h3');
+                const submitButton = document.querySelector('.contact__form button[type="submit"]');
+
+                // Cambiar el título y botón del formulario según el modo
+                if (isPurchaseMode) {
+                    if (formTitle) {
+                        formTitle.textContent = 'Solicitar Compra';
+                    }
+                    if (submitButton) {
+                        const buttonText = submitButton.querySelector('span');
+                        if (buttonText) {
+                            buttonText.textContent = 'Solicitar Compra';
+                        }
+                    }
+                }
 
                 if (categorySelect) {
                     // Seleccionar la categoría
@@ -239,7 +257,11 @@ const App = {
                         // Rellenar el campo de mensaje
                         const messageField = document.getElementById('message');
                         if (messageField && !messageField.value && productName && typeName) {
-                            messageField.value = `Estoy interesado/a en ${productName} - ${typeName}.\n\n`;
+                            if (isPurchaseMode && productPrice) {
+                                messageField.value = `Quiero comprar:\n${productName}\n${typeName}\nPrecio: ${productPrice}\n\nPor favor, confirmen disponibilidad y proceso de compra.`;
+                            } else {
+                                messageField.value = `Estoy interesado/a en ${productName} - ${typeName}.\n\n`;
+                            }
                         }
 
                         // Hacer scroll al formulario
@@ -255,22 +277,29 @@ const App = {
                 sessionStorage.removeItem('quoteType');
                 sessionStorage.removeItem('quoteTypeId');
                 sessionStorage.removeItem('quoteProductId');
+                sessionStorage.removeItem('purchaseMode');
+                sessionStorage.removeItem('productPrice');
             }, 300);
         }
     },
 
     async handleFormSubmit(e, form, formStatus) {
         e.preventDefault();
-        
+
         // Validar formulario
         if (!this.validateForm(form)) {
             this.showFormStatus(formStatus, 'error', 'Por favor, completa todos los campos requeridos.');
             return;
         }
-        
+
+        // Detectar si es modo compra (viene de producto destacado)
+        const isPurchaseMode = sessionStorage.getItem('purchaseMode') === 'true';
+        const requestType = isPurchaseMode ? 'Compra' : 'Presupuesto';
+
         // Obtener datos del formulario
         const formData = new FormData(form);
         const data = {
+            requestType: requestType,
             name: formData.get('name'),
             phone: formData.get('phone'),
             email: formData.get('email'),
@@ -289,25 +318,28 @@ const App = {
         try {
             // Enviar email usando EmailJS
             await this.sendEmail(data);
-            
+
             // Éxito
             this.showFormStatus(formStatus, 'success', '¡Gracias! Hemos recibido tu solicitud. Te contactaremos pronto.');
             //form.reset();
-            
+
+            // Limpiar purchaseMode después de enviar
+            sessionStorage.removeItem('purchaseMode');
+
             // Scroll al mensaje de éxito
             formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
+
         } catch (error) {
             console.error('Error al enviar el formulario:', error);
             this.showFormStatus(
-                formStatus, 
-                'error', 
+                formStatus,
+                'error',
                 'Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo o contáctanos directamente por teléfono o WhatsApp.'
             );
         } finally {
             // Restaurar botón
             this.showFormStatus(formStatus, 'success', '¡Gracias! Hemos recibido tu solicitud. Te contactaremos pronto.');
-            
+
             submitButton.disabled = false;
             submitButton.innerHTML = originalButtonText;
             submitButton.classList.remove('loading');
@@ -562,6 +594,83 @@ const App = {
                     if (productId) {
                         window.location.href = `producto-detalle.html?producto=${productId}`;
                     }
+                }
+            }
+        });
+    },
+
+    // ============= PRODUCTOS DESTACADOS =============
+    initFeaturedProducts() {
+        // Manejar clicks en las cards de productos destacados
+        document.addEventListener('click', (e) => {
+            // Si es el botón "Comprar Ahora", manejar la compra
+            if (e.target.classList.contains('featured-product-card__btn') ||
+                e.target.closest('.featured-product-card__btn')) {
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                const featuredCard = e.target.closest('.featured-product-card');
+                if (featuredCard) {
+                    const productId = featuredCard.dataset.productId;
+
+                    // Datos de productos destacados
+                    const featuredProducts = {
+                        'ventana-corredera-120x150': {
+                            name: 'Ventana Corredera 2 Hojas',
+                            specs: '120 x 150 cm - Aluminio Blanco',
+                            price: '450€',
+                            category: 'ventana-corredera',
+                            type: 'ventana-corredera-2hojas'
+                        },
+                        'puerta-entrada-premium': {
+                            name: 'Puerta de Entrada Premium',
+                            specs: '90 x 210 cm - Acabado Roble',
+                            price: '780€',
+                            category: 'puerta-entrada',
+                            type: 'puerta-entrada-blindada'
+                        },
+                        'mosquitera-enrollable-80x180': {
+                            name: 'Mosquitera Enrollable',
+                            specs: '80 x 180 cm - Color Blanco',
+                            price: '149€',
+                            category: 'mosquitera-enrollable',
+                            type: 'mosquitera-enrollable-vertical'
+                        }
+                    };
+
+                    const product = featuredProducts[productId];
+
+                    if (product) {
+                        // Guardar información en sessionStorage con modo compra
+                        sessionStorage.setItem('purchaseMode', 'true');
+                        sessionStorage.setItem('quoteProductId', product.category);
+                        sessionStorage.setItem('quoteTypeId', product.type);
+                        sessionStorage.setItem('quoteProduct', product.name);
+                        sessionStorage.setItem('quoteType', product.specs);
+                        sessionStorage.setItem('productPrice', product.price);
+
+                        // Scroll al formulario
+                        const contactSection = document.getElementById('contacto');
+                        if (contactSection) {
+                            contactSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+
+                        // Esperar un poco y luego rellenar el formulario
+                        setTimeout(() => {
+                            this.prefillFormFromQuote();
+                        }, 500);
+                    }
+                }
+                return;
+            }
+
+            // Si se hace click en cualquier otra parte de la card, ir al detalle
+            const featuredCard = e.target.closest('.featured-product-card');
+            if (featuredCard && !e.target.closest('.featured-product-card__btn')) {
+                const productId = featuredCard.dataset.productId;
+                if (productId) {
+                    window.location.href = `producto-destacado-detalle.html?producto=${productId}`;
                 }
             }
         });
