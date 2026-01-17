@@ -47,7 +47,7 @@ class FeaturedProductsListing {
                             <span class="featured-product-card__price-current">${product.price}€</span>
                         </div>
                             <div class="featured-product-card__actions">
-                        <button class="btn btn--primary btn--small featured-product-card__btn-buy"
+                        <button class="btn btn--primary featured-product-card__btn"
                                 data-product-id="${product.id}">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="9" cy="21" r="1"></circle>

@@ -1012,12 +1012,15 @@ ul {
     padding-top: var(--spacing-md);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: var(--spacing-md);
     padding-top: var(--spacing-lg);
 }
 
 .featured-product-card__footer .btn {
-    width: 100%;
+    width: auto;
+    margin-left: auto;
+    min-width: 200px;
 }
 
 .featured-product-card__price-wrapper {
@@ -1049,8 +1052,9 @@ ul {
 }
 
 .featured-product-card__actions .btn svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
 }
 
 .featured-product-card__price-current {
