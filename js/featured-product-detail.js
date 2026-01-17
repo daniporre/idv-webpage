@@ -103,18 +103,230 @@ const FEATURED_PRODUCTS_DATA = {
             'assets/images/products/mosquitera-enrollable.jpg',
             'assets/images/products/mosquitera-enrollable.jpg'
         ]
+    },
+    'ventana-oscilobatiente-80x120': {
+        name: 'Ventana Oscilobatiente',
+        specs: '80 x 120 cm | Aluminio Gris Antracita',
+        price: '520€',
+        oldPrice: null,
+        badge: 'Popular',
+        badgeType: 'popular',
+        category: 'ventana-oscilobatiente',
+        type: 'ventana-oscilobatiente-1hoja',
+        description: 'Ventana oscilobatiente de 1 hoja con sistema de apertura dual. Permite ventilación controlada en posición oscilobatiente y apertura completa cuando se necesita. Acabado en gris antracita RAL 7016, color tendencia que aporta elegancia y modernidad a cualquier fachada.',
+        features: [
+            'Sistema de apertura dual: abatible y oscilobatiente',
+            'Vidrio doble bajo emisivo 4/16/4',
+            'Perfil de 70mm con rotura de puente térmico',
+            'Herrajes de alta calidad con regulación micrométrica',
+            'Juntas de estanqueidad EPDM de larga duración',
+            'Instalación profesional incluida'
+        ],
+        specifications: [
+            'Dimensiones: 80 x 120 cm',
+            'Material: Aluminio lacado',
+            'Color: Gris antracita RAL 7016',
+            'Grosor perfil: 70mm',
+            'Tipo de vidrio: Bajo emisivo 4/16/4',
+            'Transmitancia térmica: 1.3 W/m²K',
+            'Aislamiento acústico: 38 dB'
+        ],
+        images: [
+            'assets/images/products/ventana-oscilobatiente.png',
+            'assets/images/products/ventana-oscilobatiente.png',
+            'assets/images/products/ventana-oscilobatiente.png'
+        ]
+    },
+    'persiana-aluminio-150x150': {
+        name: 'Persiana de Aluminio Motorizada',
+        specs: '150 x 150 cm | Con Mando',
+        price: '690€',
+        oldPrice: null,
+        badge: 'Nuevo',
+        badgeType: 'new',
+        category: 'persiana-aluminio',
+        type: 'persiana-motorizada',
+        description: 'Persiana de lamas de aluminio extrusionado con sistema de motorización silencioso. Control mediante mando a distancia para máxima comodidad. Perfecta para ventanas de difícil acceso o para integrar en sistemas de domótica.',
+        features: [
+            'Motor tubular silencioso de bajo consumo',
+            'Mando a distancia de 1 canal incluido',
+            'Lamas de aluminio extrusionado de 45mm',
+            'Sistema de seguridad antiobstáculos',
+            'Compatible con domótica (Alexa, Google Home)',
+            'Instalación completa incluida'
+        ],
+        specifications: [
+            'Dimensiones: 150 x 150 cm',
+            'Material: Aluminio extrusionado',
+            'Grosor lamas: 45mm',
+            'Motor: Tubular 230V',
+            'Nivel sonoro: < 45 dB',
+            'Consumo: 120W',
+            'Garantía motor: 5 años'
+        ],
+        images: [
+            'assets/images/products/persiana-aluminio.jpg',
+            'assets/images/products/persiana-aluminio.jpg',
+            'assets/images/products/persiana-aluminio.jpg'
+        ]
+    },
+    'cerramiento-terraza-300x240': {
+        name: 'Cerramiento de Terraza',
+        specs: '300 x 240 cm | Sistema Corredera',
+        price: '1450€',
+        oldPrice: '1680€',
+        badge: 'Oferta',
+        badgeType: 'sale',
+        category: 'cerramiento-terraza',
+        type: 'cerramiento-corredera',
+        description: 'Sistema de cerramiento de terraza con hojas correderas de gran tamaño. Amplía tu espacio habitable creando una zona protegida del viento y la lluvia sin renunciar a las vistas. Sistema de correderas con guía inferior embutida para evitar barreras arquitectónicas.',
+        features: [
+            'Sistema corredera de hojas apilables',
+            'Vidrio templado de seguridad 6mm',
+            'Guía inferior embutida sin barreras',
+            'Rodamientos de acero inoxidable',
+            'Perfiles reforzados para grandes dimensiones',
+            'Diseño y montaje personalizado incluido'
+        ],
+        specifications: [
+            'Dimensiones: 300 x 240 cm (personalizable)',
+            'Material: Aluminio reforzado',
+            'Tipo de vidrio: Templado 6mm',
+            'Número de hojas: 4 correderas',
+            'Carga máxima por hoja: 100kg',
+            'Acabados disponibles: Varios colores',
+            'Garantía: 10 años'
+        ],
+        images: [
+            'assets/images/products/cerramiento-terraza.jpg',
+            'assets/images/products/cerramiento-terraza.jpg',
+            'assets/images/products/cerramiento-terraza.jpg'
+        ]
+    },
+    'puerta-garaje-240x200': {
+        name: 'Puerta de Garaje Seccional',
+        specs: '240 x 200 cm | Motorizada',
+        price: '1890€',
+        oldPrice: null,
+        badge: 'Popular',
+        badgeType: 'popular',
+        category: 'puerta-garaje',
+        type: 'puerta-garaje-seccional',
+        description: 'Puerta de garaje seccional motorizada con paneles aislados de 40mm. Sistema de apertura vertical que aprovecha al máximo el espacio interior del garaje. Incluye motor, mando a distancia y sistema de seguridad completo.',
+        features: [
+            'Paneles seccionales aislados de 40mm',
+            'Motor de cadena profesional con luz LED',
+            'Dos mandos a distancia incluidos',
+            'Sistema antiaplastamiento y antipánico',
+            'Apertura vertical sin rieles laterales exteriores',
+            'Instalación y puesta en marcha incluida'
+        ],
+        specifications: [
+            'Dimensiones: 240 x 200 cm',
+            'Material paneles: Acero galvanizado',
+            'Aislamiento: Poliuretano 40mm',
+            'Motor: Cadena 800N',
+            'Velocidad apertura: 15 cm/s',
+            'Ciclos garantizados: 25.000',
+            'Garantía: 5 años'
+        ],
+        images: [
+            'assets/images/products/puerta-garaje.jpg',
+            'assets/images/products/puerta-garaje.jpg',
+            'assets/images/products/puerta-garaje.jpg'
+        ]
+    },
+    'barandilla-escalera-500cm': {
+        name: 'Barandilla de Escalera',
+        specs: '500 cm lineales | Acero Inoxidable',
+        price: '850€',
+        oldPrice: null,
+        badge: 'Nuevo',
+        badgeType: 'new',
+        category: 'barandilla',
+        type: 'barandilla-acero-inoxidable',
+        description: 'Barandilla de escalera fabricada en acero inoxidable AISI 304 con acabado pulido. Diseño moderno y minimalista que combina seguridad y estética. Cumple con todas las normativas vigentes de seguridad.',
+        features: [
+            'Acero inoxidable AISI 304 pulido',
+            'Pasamanos ergonómico de 50mm',
+            'Montantes cada 100cm máximo',
+            'Cable tensor de acero inoxidable',
+            'Anclajes ocultos para acabado limpio',
+            'Instalación profesional incluida'
+        ],
+        specifications: [
+            'Longitud: 500 cm lineales',
+            'Material: Acero inoxidable AISI 304',
+            'Diámetro pasamanos: 50mm',
+            'Altura barandilla: 100cm',
+            'Separación cables: 12cm',
+            'Normativa: CTE DB SUA',
+            'Garantía: 15 años'
+        ],
+        images: [
+            'assets/images/products/barandilla.jpg',
+            'assets/images/products/barandilla.jpg',
+            'assets/images/products/barandilla.jpg'
+        ]
+    },
+    'ventana-fija-200x150': {
+        name: 'Ventana Fija Panorámica',
+        specs: '200 x 150 cm | Vidrio de Seguridad',
+        price: '720€',
+        oldPrice: '850€',
+        badge: 'Oferta',
+        badgeType: 'sale',
+        category: 'ventana-fija',
+        type: 'ventana-fija-panoramica',
+        description: 'Ventana fija de gran formato ideal para maximizar las vistas y la entrada de luz natural. Vidrio de seguridad laminado con tratamiento bajo emisivo para óptimo aislamiento térmico. Perfecta para salones y espacios que requieren gran luminosidad.',
+        features: [
+            'Vidrio laminado de seguridad 6+6mm',
+            'Tratamiento bajo emisivo',
+            'Perfil minimal de 60mm',
+            'Sellado perimetral con silicona estructural',
+            'Máxima entrada de luz natural',
+            'Instalación profesional incluida'
+        ],
+        specifications: [
+            'Dimensiones: 200 x 150 cm',
+            'Material: Aluminio minimal',
+            'Grosor perfil: 60mm',
+            'Tipo de vidrio: Laminado 6+6mm bajo emisivo',
+            'Transmitancia térmica: 1.2 W/m²K',
+            'Aislamiento acústico: 40 dB',
+            'Factor solar: 0.35'
+        ],
+        images: [
+            'assets/images/products/ventana-fija.jpg',
+            'assets/images/products/ventana-fija.jpg',
+            'assets/images/products/ventana-fija.jpg'
+        ]
     }
 };
 
-// Inicializar página cuando el DOM esté listo
+// Hacer disponible globalmente para la página de listado
+window.featuredProducts = Object.keys(FEATURED_PRODUCTS_DATA).map(id => ({
+    id: id,
+    title: FEATURED_PRODUCTS_DATA[id].name,
+    specs: FEATURED_PRODUCTS_DATA[id].specs,
+    description: FEATURED_PRODUCTS_DATA[id].description,
+    price: FEATURED_PRODUCTS_DATA[id].price.replace('€', ''),
+    originalPrice: FEATURED_PRODUCTS_DATA[id].oldPrice ? FEATURED_PRODUCTS_DATA[id].oldPrice.replace('€', '') : null,
+    badge: FEATURED_PRODUCTS_DATA[id].badge,
+    image: FEATURED_PRODUCTS_DATA[id].images[0]
+}));
+
+// Inicializar página cuando el DOM esté listo (solo en la página de detalle)
 document.addEventListener('DOMContentLoaded', () => {
-    initFeaturedProductDetail();
+    // Solo ejecutar si estamos en la página de detalle
+    if (document.getElementById('product-title')) {
+        initFeaturedProductDetail();
+    }
 });
 
 function initFeaturedProductDetail() {
-    // Obtener el ID del producto de la URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('producto');
+    // Obtener el ID del producto de sessionStorage
+    const productId = sessionStorage.getItem('selectedProductId');
 
     if (!productId || !FEATURED_PRODUCTS_DATA[productId]) {
         // Si no hay producto válido, redirigir a inicio

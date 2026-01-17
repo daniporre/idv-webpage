@@ -75,23 +75,52 @@
             <div class="hero__overlay"></div>
         </div>
 
-        <div class="hero__container container">
-            <div class="hero__content">
-                <div class="hero__brand">
-                    <span class="hero__brand-name">Industrias Dos Vientos</span>
-                </div>
-                <h1 class="hero__title">
-                    Diseño y Precisión en <span class="hero__title--highlight">Aluminio</span>
-                </h1>
-                <p class="hero__description">
-                    Soluciones de alta calidad. Ventanas, puertas y mosquiteras diseñadas para transformar espacios con
-                    elegancia y funcionalidad.
-                </p>
-                <div class="hero__buttons">
-                    <a href="#contacto" class="btn btn--primary">Solicitar Presupuesto</a>
-                    <a href="#productos" class="btn btn--secondary btn--secondary-hero">Ver Productos</a>
+        <div class="hero__carousel">
+            <!-- Slide 1: Contenido Principal -->
+            <div class="hero__slide hero__slide--active">
+                <div class="hero__container container">
+                    <div class="hero__content">
+                        <div class="hero__brand">
+                            <span class="hero__brand-name">Industrias Dos Vientos</span>
+                        </div>
+                        <h1 class="hero__title">
+                            Diseño y Precisión en <span class="hero__title--highlight">Aluminio</span>
+                        </h1>
+                        <p class="hero__description">
+                            Soluciones de alta calidad. Ventanas, puertas y mosquiteras diseñadas para transformar espacios con
+                            elegancia y funcionalidad.
+                        </p>
+                        <div class="hero__buttons">
+                            <a href="#contacto" class="btn btn--primary">Solicitar Presupuesto</a>
+                            <a href="#productos" class="btn btn--secondary btn--secondary-hero">Ver Productos</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Slide 2: Productos Destacados -->
+            <div class="hero__slide">
+                <div class="hero__container container">
+                    <div class="hero__content">
+                        <h2 class="hero__title">
+                            Productos <span class="hero__title--highlight">Destacados</span>
+                        </h2>
+                        <p class="hero__description">
+                            Descubre nuestra selección de productos con precio fijo, listos para comprar
+                        </p>
+                        <div class="hero__buttons">
+                            <a href="productos-destacados-listado.html" class="btn btn--primary">Ver Todos</a>
+                            <a href="#productos-destacados" class="btn btn--secondary btn--secondary-hero">Más Información</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Navigation -->
+        <div class="hero__carousel-nav">
+            <button class="hero__carousel-dot hero__carousel-dot--active" data-slide="0" aria-label="Ir a slide 1"></button>
+            <button class="hero__carousel-dot" data-slide="1" aria-label="Ir a slide 2"></button>
         </div>
 
         <!-- WhatsApp Float Button -->
@@ -194,9 +223,17 @@
                     </div>
                 </div>
             </div>
+
+            <div class="featured-products__cta">
+                <a href="productos-destacados-listado.html" class="btn btn--secondary btn--large">
+                    <span>Ver más productos destacados</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
-
 
     <!-- Products Section -->
     <section class="products" id="productos">

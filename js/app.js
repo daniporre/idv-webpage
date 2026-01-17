@@ -24,6 +24,7 @@ const App = {
         this.initProductTabs();
         this.initProductDetail();
         this.initFeaturedProducts();
+        this.initHeroCarousel();
     },
 
     // ============= NAVEGACIÓN =============
@@ -674,6 +675,62 @@ const App = {
                 }
             }
         });
+    },
+
+    // ============= HERO CAROUSEL =============
+    initHeroCarousel() {
+        const slides = document.querySelectorAll('.hero__slide');
+        const dots = document.querySelectorAll('.hero__carousel-dot');
+
+        if (slides.length === 0 || dots.length === 0) return;
+
+        let currentSlide = 0;
+        const slideInterval = 6000; // 6 segundos por slide
+        let autoplayInterval;
+
+        const goToSlide = (slideIndex) => {
+            // Remover clase activa de todos los slides y dots
+            slides.forEach(slide => slide.classList.remove('hero__slide--active'));
+            dots.forEach(dot => dot.classList.remove('hero__carousel-dot--active'));
+
+            // Añadir clase activa al slide y dot actual
+            slides[slideIndex].classList.add('hero__slide--active');
+            dots[slideIndex].classList.add('hero__carousel-dot--active');
+
+            currentSlide = slideIndex;
+        };
+
+        const nextSlide = () => {
+            const next = (currentSlide + 1) % slides.length;
+            goToSlide(next);
+        };
+
+        const startAutoplay = () => {
+            autoplayInterval = setInterval(nextSlide, slideInterval);
+        };
+
+        const stopAutoplay = () => {
+            clearInterval(autoplayInterval);
+        };
+
+        // Navegación manual por dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopAutoplay();
+                goToSlide(index);
+                startAutoplay();
+            });
+        });
+
+        // Iniciar autoplay
+        startAutoplay();
+
+        // Pausar autoplay cuando el usuario interactúa
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            heroSection.addEventListener('mouseenter', stopAutoplay);
+            heroSection.addEventListener('mouseleave', startAutoplay);
+        }
     }
 };
 
