@@ -9,15 +9,15 @@
     --color-primary: #2c3e50;
     --color-primary-light: #34495e;
     --color-primary-dark: #1a252f;
-    
+
     --color-secondary: #95a5a6;
     --color-secondary-light: #bdc3c7;
     --color-secondary-dark: #7f8c8d;
-    
+
     --color-accent: #3498db;
     --color-accent-light: #5dade2;
     --color-accent-dark: #2980b9;
-    
+
     /* Escala de grises */
     --color-white: #ffffff;
     --color-gray-50: #f8f9fa;
@@ -31,55 +31,73 @@
     --color-gray-800: #2c3e50;
     --color-gray-900: #1a252f;
     --color-black: #0a0e12;
-    
+
     /* Colores de estado */
     --color-success: #27ae60;
     --color-error: #e74c3c;
     --color-warning: #f39c12;
     --color-info: #3498db;
-    
+
     /* WhatsApp */
     --color-whatsapp: #25d366;
-    
+
     /* Tipografía */
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Open Sans', sans-serif;
-    
+
     --font-weight-light: 300;
     --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-    
+
     /* Tamaños de fuente */
-    --font-size-xs: 0.75rem;     /* 12px */
-    --font-size-sm: 0.875rem;    /* 14px */
-    --font-size-base: 1rem;      /* 16px */
-    --font-size-lg: 1.125rem;    /* 18px */
-    --font-size-xl: 1.25rem;     /* 20px */
-    --font-size-2xl: 1.5rem;     /* 24px */
-    --font-size-3xl: 1.875rem;   /* 30px */
-    --font-size-4xl: 2.25rem;    /* 36px */
-    --font-size-5xl: 3rem;       /* 48px */
-    --font-size-6xl: 3.75rem;    /* 60px */
-    
+    --font-size-xs: 0.75rem;
+    /* 12px */
+    --font-size-sm: 0.875rem;
+    /* 14px */
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.25rem;
+    /* 20px */
+    --font-size-2xl: 1.5rem;
+    /* 24px */
+    --font-size-3xl: 1.875rem;
+    /* 30px */
+    --font-size-4xl: 2.25rem;
+    /* 36px */
+    --font-size-5xl: 3rem;
+    /* 48px */
+    --font-size-6xl: 3.75rem;
+    /* 60px */
+
     /* Espaciado */
-    --spacing-xs: 0.25rem;    /* 4px */
-    --spacing-sm: 0.5rem;     /* 8px */
-    --spacing-md: 1rem;       /* 16px */
-    --spacing-lg: 1.5rem;     /* 24px */
-    --spacing-xl: 2rem;       /* 32px */
-    --spacing-2xl: 3rem;      /* 48px */
-    --spacing-3xl: 4rem;      /* 64px */
-    --spacing-4xl: 6rem;      /* 96px */
-    
+    --spacing-xs: 0.25rem;
+    /* 4px */
+    --spacing-sm: 0.5rem;
+    /* 8px */
+    --spacing-md: 1rem;
+    /* 16px */
+    --spacing-lg: 1.5rem;
+    /* 24px */
+    --spacing-xl: 2rem;
+    /* 32px */
+    --spacing-2xl: 3rem;
+    /* 48px */
+    --spacing-3xl: 4rem;
+    /* 64px */
+    --spacing-4xl: 6rem;
+    /* 96px */
+
     /* Bordes */
     --border-radius-sm: 4px;
     --border-radius-md: 8px;
     --border-radius-lg: 12px;
     --border-radius-xl: 16px;
     --border-radius-full: 9999px;
-    
+
     /* Sombras */
     --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
@@ -87,12 +105,12 @@
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
     --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.12);
-    
+
     /* Transiciones */
     --transition-fast: 150ms ease;
     --transition-base: 250ms ease;
     --transition-slow: 350ms ease;
-    
+
     /* Contenedor */
     --container-max-width: 1200px;
     --container-padding: var(--spacing-md);
@@ -285,12 +303,10 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.75) 0%,
-        rgba(44, 62, 80, 0.85) 50%,
-        rgba(0, 0, 0, 0.7) 100%
-    );
+    background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(44, 62, 80, 0.85) 50%,
+            rgba(0, 0, 0, 0.7) 100%);
     z-index: 1;
 }
 
@@ -591,7 +607,8 @@ ul {
 }
 
 .services__header {
-  padding-top: var(--spacing-4xl);;
+    padding-top: var(--spacing-4xl);
+    ;
 }
 
 /* Certifications */
@@ -872,6 +889,7 @@ ul {
     border: 1px solid var(--color-gray-200);
     display: flex;
     flex-direction: column;
+        border-bottom: 1px solid var(--color-gray-200);
 }
 
 .featured-product-card:hover {
@@ -958,13 +976,17 @@ ul {
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-md);
     flex: 1;
+    border-bottom: 2px solid var(--color-gray-200);
+    padding-bottom: var(--spacing-lg);
 }
 
 .featured-product-card__features {
     list-style: none;
     padding: 0;
-    margin: 0 0 var(--spacing-lg) 0;
     flex: 1;
+    margin: 0 0 0 0;
+    border-bottom: 2px solid var(--color-gray-200);
+    padding-bottom: var(--spacing-lg);
 }
 
 .featured-product-card__features li {
@@ -988,6 +1010,14 @@ ul {
 
 .featured-product-card__footer {
     padding-top: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-lg);
+}
+
+.featured-product-card__footer .btn {
+    width: 100%;
 }
 
 .featured-product-card__price-wrapper {
@@ -998,12 +1028,16 @@ ul {
 
 .featured-product-card__price {
     display: flex;
+    align-items: center;
     align-items: baseline;
     gap: var(--spacing-md);
+    justify-content: space-between;
 }
 
-.featured-product-card__actions {
+.featured-product-card__price {
     display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
 }
 
 .featured-product-card__actions .btn {
@@ -1043,17 +1077,15 @@ ul {
 }
 
 .featured-product-card__price-old {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-base-lg);
     color: var(--color-gray-500);
     text-decoration: line-through;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-xxs);
 }
 
 .featured-product-card__btn {
-    flex-shrink: 0;
-    padding: var(--spacing-md) var(--spacing-xl);
-    font-size: var(--font-size-sm);
-    white-space: nowrap;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-xs);
 }
 
 .featured-product-card {
@@ -1863,6 +1895,7 @@ ul {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -2065,6 +2098,7 @@ ul {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -2076,6 +2110,7 @@ ul {
         opacity: 0;
         transform: translateX(30px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -2188,7 +2223,7 @@ ul {
 }
 
 .brands__item__main .brands__logo {
-    max-height: 180px; 
+    max-height: 180px;
 }
 
 /* ============= ESTADOS DE CARGA ============= */

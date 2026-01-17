@@ -40,15 +40,13 @@ class FeaturedProductsListing {
                     <h3 class="featured-product-card__title">${product.title}</h3>
                     <p class="featured-product-card__specs">${product.specs}</p>
 
-                    <div class="featured-product-card__price-wrapper">
-                        <span class="featured-product-card__price-label">Precio:</span>
-                        <div class="featured-product-card__price">
+                    <div class="featured-product-card__footer">
+                            <div class="featured-product-card__price">
+                            
+                            ${hasDiscount ? `<span class="featured-product-card__price-old">${product.originalPrice}€</span>` : 'Precio:'}
                             <span class="featured-product-card__price-current">${product.price}€</span>
-                            ${hasDiscount ? `<span class="featured-product-card__price-old">${product.originalPrice}€</span>` : ''}
                         </div>
-                    </div>
-
-                    <div class="featured-product-card__actions">
+                            <div class="featured-product-card__actions">
                         <button class="btn btn--primary btn--small featured-product-card__btn-buy"
                                 data-product-id="${product.id}">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -59,6 +57,9 @@ class FeaturedProductsListing {
                             <span>Comprar Ahora</span>
                         </button>
                     </div>
+                        </div>
+
+                    
                 </div>
             </div>
         `;
