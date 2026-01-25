@@ -671,7 +671,8 @@ const App = {
             if (featuredCard && !e.target.closest('.featured-product-card__btn')) {
                 const productId = featuredCard.dataset.productId;
                 if (productId) {
-                    window.location.href = `producto-destacado-detalle.html?producto=${productId}`;
+                    sessionStorage.setItem('selectedProductId', productId);
+                    window.location.href = 'producto-destacado-detalle.html';
                 }
             }
         });
