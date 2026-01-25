@@ -34,8 +34,6 @@ const FEATURED_PRODUCTS_DATA = {
         ],
         images: [
             'assets/images/products/ventana-corredera.png',
-            'assets/images/products/ventana-corredera.png',
-            'assets/images/products/ventana-corredera.png'
         ]
     },
     'puerta-entrada-premium': {
@@ -67,8 +65,6 @@ const FEATURED_PRODUCTS_DATA = {
         ],
         images: [
             'assets/images/products/puerta-entrada.png',
-            'assets/images/products/puerta-entrada.png',
-            'assets/images/products/puerta-entrada.png'
         ]
     },
     'mosquitera-enrollable-80x180': {
@@ -100,8 +96,6 @@ const FEATURED_PRODUCTS_DATA = {
         ],
         images: [
             'assets/images/products/mosquitera-enrollable.jpg',
-            'assets/images/products/mosquitera-enrollable.jpg',
-            'assets/images/products/mosquitera-enrollable.jpg'
         ]
     },
     'ventana-oscilobatiente-80x120': {
@@ -132,9 +126,7 @@ const FEATURED_PRODUCTS_DATA = {
             'Aislamiento acústico: 38 dB'
         ],
         images: [
-            'assets/images/products/ventana-oscilobatiente.png',
-            'assets/images/products/ventana-oscilobatiente.png',
-            'assets/images/products/ventana-oscilobatiente.png'
+            'assets/images/products/ventana-oscilobatiente-1.jpg',
         ]
     },
     'persiana-aluminio-150x150': {
@@ -165,9 +157,7 @@ const FEATURED_PRODUCTS_DATA = {
             'Garantía motor: 5 años'
         ],
         images: [
-            'assets/images/products/persiana-aluminio.jpg',
-            'assets/images/products/persiana-aluminio.jpg',
-            'assets/images/products/persiana-aluminio.jpg'
+            'assets/images/products/persiana-aluminio-1.png',
         ]
     },
     'cerramiento-terraza-300x240': {
@@ -198,9 +188,7 @@ const FEATURED_PRODUCTS_DATA = {
             'Garantía: 10 años'
         ],
         images: [
-            'assets/images/products/cerramiento-terraza.jpg',
-            'assets/images/products/cerramiento-terraza.jpg',
-            'assets/images/products/cerramiento-terraza.jpg'
+            'assets/images/products/cerramiento-terraza-1.jpeg',
         ]
     },
     'puerta-garaje-240x200': {
@@ -231,9 +219,8 @@ const FEATURED_PRODUCTS_DATA = {
             'Garantía: 5 años'
         ],
         images: [
-            'assets/images/products/puerta-garaje.jpg',
-            'assets/images/products/puerta-garaje.jpg',
-            'assets/images/products/puerta-garaje.jpg'
+            'assets/images/products/puerta-garaje-1.jpg',
+            'assets/images/products/puerta-garaje-2.jpeg',
         ]
     },
     'barandilla-escalera-500cm': {
@@ -264,9 +251,7 @@ const FEATURED_PRODUCTS_DATA = {
             'Garantía: 15 años'
         ],
         images: [
-            'assets/images/products/barandilla.jpg',
-            'assets/images/products/barandilla.jpg',
-            'assets/images/products/barandilla.jpg'
+            'assets/images/products/barandilla-1.jpg',
         ]
     },
     'ventana-fija-200x150': {
@@ -297,9 +282,7 @@ const FEATURED_PRODUCTS_DATA = {
             'Factor solar: 0.35'
         ],
         images: [
-            'assets/images/products/ventana-fija.jpg',
-            'assets/images/products/ventana-fija.jpg',
-            'assets/images/products/ventana-fija.jpg'
+            'assets/images/products/ventana-fija-1.avif',
         ]
     }
 };
