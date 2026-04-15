@@ -331,9 +331,6 @@ const App = {
                 'Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo o contáctanos directamente por teléfono o WhatsApp.'
             );
         } finally {
-            // Restaurar botón
-            this.showFormStatus(formStatus, 'success', '¡Gracias! Hemos recibido tu solicitud. Te contactaremos pronto.');
-
             submitButton.disabled = false;
             submitButton.innerHTML = originalButtonText;
             submitButton.classList.remove('loading');

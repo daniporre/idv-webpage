@@ -1,10 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { Resend } = require('resend');
 const path = require('path');
 
 const app = express();
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.use(cors({ origin: 'https://industriasdosvientos.com' }));
 app.use(express.json());
@@ -18,6 +18,7 @@ app.post('/api/contact', async (req, res) => {
     }
 
     try {
+        const resend = new Resend(process.env.RESEND_API_KEY);
         await resend.emails.send({
             from: 'web@industriasdosvientos.com',
             to: 'pedidos@industriasdosvientos.com',
