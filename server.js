@@ -10,6 +10,10 @@ app.use(cors({ origin: 'https://industriasdosvientos.com' }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
+app.get('/health', (_req, res) => {
+    res.json({ status: 'ok' });
+});
+
 app.post('/api/contact', async (req, res) => {
     const { name, phone, email, address, productType, measurements, quantity, message } = req.body;
 
