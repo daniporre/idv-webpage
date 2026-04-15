@@ -3,14 +3,6 @@
    Funcionalidad interactiva y gestión de formularios
    =================================== */
 
-// ============= CONFIGURACIÓN EMAILJS =============
-// IMPORTANTE: Reemplaza estos valores con tus credenciales de EmailJS
-// Registrate en https://www.emailjs.com/
-const EMAILJS_CONFIG = {
-    serviceID: 'TU_SERVICE_ID',      // Reemplazar con tu Service ID
-    templateID: 'TU_TEMPLATE_ID',    // Reemplazar con tu Template ID
-    publicKey: 'TU_PUBLIC_KEY'       // Reemplazar con tu Public Key
-};
 
 // ============= ESTADO DE LA APLICACIÓN =============
 const App = {
@@ -306,6 +298,8 @@ const App = {
             email: formData.get('email'),
             address: formData.get('address'),
             productType: formData.get('product-type'),
+            measurements: formData.get('measurements'),
+            quantity: formData.get('quantity'),
             message: formData.get('message')
         };
         
@@ -317,7 +311,6 @@ const App = {
         submitButton.classList.add('loading');
         
         try {
-            // Enviar email usando EmailJS
             await this.sendEmail(data);
 
             // Éxito
@@ -384,63 +377,16 @@ const App = {
     },
 
     async sendEmail(data) {
-        // NOTA: Para que esto funcione, debes:
-        // 1. Registrarte en EmailJS (https://www.emailjs.com/)
-        // 2. Crear un servicio de email
-        // 3. Crear un template con las siguientes variables:
-        //    {{name}}, {{email}}, {{phone}}, {{address}}, {{productType}}, {{message}}
-        // 4. Reemplazar los valores en EMAILJS_CONFIG al inicio del archivo
-        
-        // Comprobar si EmailJS está configurado
-        if (EMAILJS_CONFIG.serviceID === 'TU_SERVICE_ID') {
-            console.warn('⚠️ EmailJS no está configurado. Por favor, configura tus credenciales en el archivo JavaScript.');
-            
-            // Simular envío exitoso para demo
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    console.log('📧 Datos del formulario (DEMO):', data);
-                    resolve();
-                }, 1500);
-            });
-        }
-        
-        // Cargar EmailJS si no está cargado
-        if (typeof emailjs === 'undefined') {
-            await this.loadEmailJS();
-        }
-        
-        // Preparar parámetros para el template
-        const templateParams = {
-            to_email: 'correo@prueba.com',
-            from_name: data.name,
-            from_email: data.email,
-            phone: data.phone,
-            address: data.address || 'No especificada',
-            product_type: this.getProductTypeName(data.productType),
-            message: data.message,
-            reply_to: data.email
-        };
-        
-        // Enviar email
-        return emailjs.send(
-            EMAILJS_CONFIG.serviceID,
-            EMAILJS_CONFIG.templateID,
-            templateParams,
-            EMAILJS_CONFIG.publicKey
-        );
-    },
-
-    loadEmailJS() {
-        return new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-            script.onload = () => {
-                emailjs.init(EMAILJS_CONFIG.publicKey);
-                resolve();
-            };
-            script.onerror = reject;
-            document.head.appendChild(script);
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
         });
+
+        if (!response.ok) {
+            const err = await response.json();
+            throw new Error(err.error || 'Error al enviar el mensaje.');
+        }
     },
 
     getProductTypeName(value) {
